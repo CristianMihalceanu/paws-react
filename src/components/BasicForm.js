@@ -215,6 +215,19 @@ const BasicForm = (props) => {
               <p className="error-text">Please enter a valid city.</p>
             )}
           </div>
+          <div className={speciesClasses}>
+            <label htmlFor="species1">City</label>
+            <input
+              type="text"
+              id="species1"
+              value={speciesValue}
+              onChange={speciesChangeHandler}
+              onBlur={speciesBlurHandler}
+            />
+            {speciesHasError && (
+              <p className="error-text">Please enter a valid city.</p>
+            )}
+          </div>
 
           <div className={dateClasses}>
             <label htmlFor="date">Check-in date</label>
