@@ -12,10 +12,10 @@ const SmallNews = (props) => {
         <div className={classes.textbox}>
           <p className={classes["news-name"]}>
             {" "}
-            {props.info.name}, {props.info.species}{" "}
+            {props.info.name}'s proposal for {props.info.city}{" "}
           </p>
           <p className={classes["date-place"]}>
-            Lost on {props.info.date} in {props.info.place}
+            From {props.info.cidate} to {props.info.codate}{" "}
           </p>
         </div>
         <Link to={`/list/${props.info.id}`} className={classes["btn--news"]}>

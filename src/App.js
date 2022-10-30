@@ -57,7 +57,7 @@ function App() {
   useEffect(() => {
     const fetchPets = async () => {
       const response = await fetch(
-        "https://paws-b59ae-default-rtdb.europe-west1.firebasedatabase.app/pets.json"
+        "https://hack-adobe-default-rtdb.europe-west1.firebasedatabase.app/pets.json"
       );
       if (!response) {
         throw new Error("Something went wrong!");
@@ -71,13 +71,16 @@ function App() {
           key: key,
           id: key,
           name: responseData[key].name,
-          species: responseData[key].species,
-          date: responseData[key].date,
-          place: responseData[key].place,
-          age: responseData[key].age,
-          ownersName: responseData[key].ownersName,
-          ownersPhone: responseData[key].ownersPhone,
-          ownersEmail: responseData[key].ownersEmail,
+          city: responseData[key].city,
+          cidate: responseData[key].cidate,
+          codate: responseData[key].codate,
+          nights: responseData[key].nights,
+          lat: responseData[key].lat,
+          long: responseData[key].long,
+          cost: responseData[key].cost,
+          guests: responseData[key].guests,
+          room: responseData[key].room,
+          objectives: responseData[key].objectives,
         });
       }
       setPets(loadedPets);

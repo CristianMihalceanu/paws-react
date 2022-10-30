@@ -16,28 +16,44 @@ const BasicForm = (props) => {
     reset: resetName,
   } = useInput(isNotEmpty);
   const {
-    value: speciesValue,
-    isValid: speciesIsValid,
-    hasError: speciesHasError,
-    valueChangeHandler: speciesChangeHandler,
-    inputBlurHandler: speciesBlurHandler,
-    reset: resetSpecies,
+    value: cityValue,
+    isValid: cityIsValid,
+    hasError: cityHasError,
+    valueChangeHandler: cityChangeHandler,
+    inputBlurHandler: cityBlurHandler,
+    reset: resetCity,
   } = useInput(isNotEmpty);
   const {
-    value: dateValue,
-    isValid: dateIsValid,
-    hasError: dateHasError,
-    valueChangeHandler: dateChangeHandler,
-    inputBlurHandler: dateBlurHandler,
-    reset: resetDate,
+    value: hotelValue,
+    isValid: hotelIsValid,
+    hasError: hotelHasError,
+    valueChangeHandler: hotelChangeHandler,
+    inputBlurHandler: hotelBlurHandler,
+    reset: resetHotel,
   } = useInput(isNotEmpty);
   const {
-    value: placeValue,
-    isValid: placeIsValid,
-    hasError: placeHasError,
-    valueChangeHandler: placeChangeHandler,
-    inputBlurHandler: placeBlurHandler,
-    reset: resetPlace,
+    value: cidateValue,
+    isValid: cidateIsValid,
+    hasError: cidateHasError,
+    valueChangeHandler: cidateChangeHandler,
+    inputBlurHandler: cidateBlurHandler,
+    reset: resetciDate,
+  } = useInput(isNotEmpty);
+  const {
+    value: codateValue,
+    isValid: codateIsValid,
+    hasError: codateHasError,
+    valueChangeHandler: codateChangeHandler,
+    inputBlurHandler: codateBlurHandler,
+    reset: resetcoDate,
+  } = useInput(isNotEmpty);
+  const {
+    value: nightsValue,
+    isValid: nightsIsValid,
+    hasError: nightsHasError,
+    valueChangeHandler: nightsChangeHandler,
+    inputBlurHandler: nightsBlurHandler,
+    reset: resetNights,
   } = useInput(isNotEmpty);
   const {
     value: latValue,
@@ -56,71 +72,75 @@ const BasicForm = (props) => {
     reset: resetLong,
   } = useInput(isNotEmpty);
   const {
-    value: ageValue,
-    isValid: ageIsValid,
-    hasError: ageHasError,
-    valueChangeHandler: ageChangeHandler,
-    inputBlurHandler: ageBlurHandler,
-    reset: resetAge,
+    value: costValue,
+    isValid: costIsValid,
+    hasError: costHasError,
+    valueChangeHandler: costChangeHandler,
+    inputBlurHandler: costBlurHandler,
+    reset: resetCost,
   } = useInput(isNotEmpty);
   const {
-    value: ownersNameValue,
-    isValid: ownersNameIsValid,
-    hasError: ownersNameHasError,
-    valueChangeHandler: ownersNameChangeHandler,
-    inputBlurHandler: ownersNameBlurHandler,
-    reset: resetOwnersName,
+    value: guestsValue,
+    isValid: guestsIsValid,
+    hasError: guestsHasError,
+    valueChangeHandler: guestsChangeHandler,
+    inputBlurHandler: guestsBlurHandler,
+    reset: resetGuests,
   } = useInput(isNotEmpty);
   const {
-    value: ownersPhoneValue,
-    isValid: ownersPhoneIsValid,
-    hasError: ownersPhoneHasError,
-    valueChangeHandler: ownersPhoneChangeHandler,
-    inputBlurHandler: ownersPhoneBlurHandler,
-    reset: resetOwnersPhone,
+    value: roomValue,
+    isValid: roomIsValid,
+    hasError: roomHasError,
+    valueChangeHandler: roomChangeHandler,
+    inputBlurHandler: roomBlurHandler,
+    reset: resetRoom,
   } = useInput(isNotEmpty);
   const {
-    value: ownersEmailValue,
-    isValid: ownersEmailIsValid,
-    hasError: ownersEmailHasError,
-    valueChangeHandler: ownersEmailChangeHandler,
-    inputBlurHandler: ownersEmailBlurHandler,
-    reset: resetOwnersEmail,
-  } = useInput(isdate);
+    value: objectivesValue,
+    isValid: objectivesIsValid,
+    hasError: objectivesHasError,
+    valueChangeHandler: objectivesChangeHandler,
+    inputBlurHandler: objectivesBlurHandler,
+    reset: resetObjectives,
+  } = useInput(isNotEmpty);
 
   let formIsValid = false;
 
   if (
     nameIsValid &&
-    speciesIsValid &&
-    dateIsValid &&
-    placeIsValid &&
+    hotelIsValid &&
+    cityIsValid &&
+    cidateIsValid &&
+    codateIsValid &&
+    nightsIsValid &&
     latIsValid &&
     longIsValid &&
-    ageIsValid &&
-    ownersNameIsValid &&
-    ownersPhoneIsValid &&
-    ownersEmailIsValid
+    costIsValid &&
+    guestsIsValid &&
+    roomIsValid &&
+    objectivesIsValid
   ) {
     formIsValid = true;
   }
 
   const submitPetHandler = (event) => {
     const smth = fetch(
-      "https://paws-b59ae-default-rtdb.europe-west1.firebasedatabase.app/pets.json",
+      "https://hack-adobe-default-rtdb.europe-west1.firebasedatabase.app/pets.json",
       {
         method: "POST",
         body: JSON.stringify({
           name: nameValue,
-          species: speciesValue,
-          date: dateValue,
-          place: placeValue,
+          city: cityValue,
+          hotel: hotelValue,
+          cidate: cidateValue,
+          codate: codateValue,
+          nights: nightsValue,
           lat: latValue,
           long: longValue,
-          age: ageValue,
-          ownersName: ownersNameValue,
-          ownersPhone: ownersPhoneValue,
-          ownersEmail: ownersEmailValue,
+          cost: costValue,
+          guests: guestsValue,
+          room: roomValue,
+          objectives: objectivesValue,
         }),
       }
     );
@@ -135,15 +155,17 @@ const BasicForm = (props) => {
 
     const newPet = {
       name: nameValue,
-      species: speciesValue,
-      date: dateValue,
-      place: placeValue,
+      city: cityValue,
+      hotel: hotelValue,
+      cidate: cidateValue,
+      codate: codateValue,
+      nights: nightsValue,
       lat: latValue,
       long: longValue,
-      age: ageValue,
-      ownersName: ownersNameValue,
-      ownersPhone: ownersPhoneValue,
-      ownersEmail: ownersEmailValue,
+      cost: costValue,
+      guests: guestsValue,
+      room: roomValue,
+      objectives: objectivesValue,
     };
     props.onPetChange((prevPets) => {
       return prevPets.concat(newPet);
@@ -152,36 +174,45 @@ const BasicForm = (props) => {
     submitPetHandler();
 
     console.log("Submitted!");
-    console.log(nameValue, speciesValue, dateValue);
+    console.log(nameValue, cityValue, cidateValue);
 
     resetName();
-    resetSpecies();
-    resetDate();
-    resetPlace();
+    resetCity();
+    resetHotel();
+    resetciDate();
+    resetcoDate();
+    resetNights();
+
     resetLat();
     resetLong();
-    resetAge();
-    resetOwnersName();
-    resetOwnersPhone();
-    resetOwnersEmail();
+    resetCost();
+
+    resetGuests();
+    resetRoom();
+    resetObjectives();
   };
 
   const nameClasses = nameHasError ? "form-control invalid" : "form-control";
-  const speciesClasses = speciesHasError
+  const cityClasses = cityHasError ? "form-control invalid" : "form-control";
+  const hotelClasses = hotelHasError ? "form-control invalid" : "form-control";
+  const cidateClasses = cidateHasError
     ? "form-control invalid"
     : "form-control";
-  const dateClasses = dateHasError ? "form-control invalid" : "form-control";
-  const placeClasses = placeHasError ? "form-control invalid" : "form-control";
+  const codateClasses = codateHasError
+    ? "form-control invalid"
+    : "form-control";
+
+  const nightsClasses = nightsHasError
+    ? "form-control invalid"
+    : "form-control";
   const latClasses = latHasError ? "form-control invalid" : "form-control";
   const longClasses = longHasError ? "form-control invalid" : "form-control";
-  const ageClasses = ageHasError ? "form-control invalid" : "form-control";
-  const ownersNameClasses = ownersNameHasError
+  const costClasses = costHasError ? "form-control invalid" : "form-control";
+  const guestsClasses = guestsHasError
     ? "form-control invalid"
     : "form-control";
-  const ownersPhoneClasses = ownersPhoneHasError
-    ? "form-control invalid"
-    : "form-control";
-  const ownersEmailClasses = ownersEmailHasError
+  const roomClasses = roomHasError ? "form-control invalid" : "form-control";
+  const objectivesClasses = objectivesHasError
     ? "form-control invalid"
     : "form-control";
 
@@ -202,70 +233,71 @@ const BasicForm = (props) => {
               <p className="error-text">Please enter a valid name.</p>
             )}
           </div>
-          <div className={speciesClasses}>
+          <div className={cityClasses}>
             <label htmlFor="species1">City</label>
             <input
               type="text"
               id="species1"
-              value={speciesValue}
-              onChange={speciesChangeHandler}
-              onBlur={speciesBlurHandler}
+              value={cityValue}
+              onChange={cityChangeHandler}
+              onBlur={cityBlurHandler}
             />
-            {speciesHasError && (
+            {cityHasError && (
               <p className="error-text">Please enter a valid city.</p>
             )}
           </div>
-          <div className={speciesClasses}>
-            <label htmlFor="species1">City</label>
+          <div className={hotelClasses}>
+            <label htmlFor="species1">Hotel Name</label>
             <input
               type="text"
               id="species1"
-              value={speciesValue}
-              onChange={speciesChangeHandler}
-              onBlur={speciesBlurHandler}
+              value={hotelValue}
+              onChange={hotelChangeHandler}
+              onBlur={hotelBlurHandler}
             />
-            {speciesHasError && (
-              <p className="error-text">Please enter a valid city.</p>
+            {hotelHasError && (
+              <p className="error-text">Please enter a valid hotel.</p>
             )}
           </div>
 
-          <div className={dateClasses}>
+          <div className={cidateClasses}>
             <label htmlFor="date">Check-in date</label>
             <input
               type="text"
               id="date"
-              value={dateValue}
-              onChange={dateChangeHandler}
-              onBlur={dateBlurHandler}
+              value={cidateValue}
+              onChange={cidateChangeHandler}
+              onBlur={cidateBlurHandler}
             />
-            {dateHasError && (
+            {cidateHasError && (
               <p className="error-text">Please enter a valid date</p>
             )}
           </div>
-          <div className={dateClasses}>
+          <div className={codateClasses}>
             <label htmlFor="date">Check-out date</label>
             <input
               type="text"
               id="date"
-              value={dateValue}
-              onChange={dateChangeHandler}
-              onBlur={dateBlurHandler}
+              value={codateValue}
+              onChange={codateChangeHandler}
+              onBlur={codateBlurHandler}
             />
-            {dateHasError && (
+            {codateHasError && (
               <p className="error-text">Please enter a valid date</p>
             )}
           </div>
-          <div className={placeClasses}>
-            <label htmlFor="date">Missing place</label>
+
+          <div className={nightsClasses}>
+            <label htmlFor="date">Nr. of Nights</label>
             <input
               type="text"
-              id="place"
-              value={placeValue}
-              onChange={placeChangeHandler}
-              onBlur={placeBlurHandler}
+              id="nights"
+              value={nightsValue}
+              onChange={nightsChangeHandler}
+              onBlur={nightsBlurHandler}
             />
-            {placeHasError && (
-              <p className="error-text">Please enter a valid place</p>
+            {nightsHasError && (
+              <p className="error-text">Please enter a valid nights nr</p>
             )}
           </div>
           <div className={latClasses}>
@@ -294,63 +326,61 @@ const BasicForm = (props) => {
               <p className="error-text">Please enter a valid longitude.</p>
             )}
           </div>
-          <div className={ageClasses}>
-            <label htmlFor="age">Estimated Cost</label>
+          <div className={costClasses}>
+            <label htmlFor="cost">Estimated Cost</label>
             <input
               type="number"
-              id="age"
-              value={ageValue}
-              onChange={ageChangeHandler}
-              onBlur={ageBlurHandler}
+              id="cost"
+              value={costValue}
+              onChange={costChangeHandler}
+              onBlur={costBlurHandler}
             />
-            {ageHasError && (
+            {costHasError && (
               <p className="error-text">Please enter a valid cost.</p>
             )}
           </div>
-          <div className={ownersNameClasses}>
-            <label htmlFor="ownersName">Owner's name: </label>
+          <div className={guestsClasses}>
+            <label htmlFor="guests">Nr. of guests </label>
             <input
               type="text"
-              id="ownersName"
-              value={ownersNameValue}
-              onChange={ownersNameChangeHandler}
-              onBlur={ownersNameBlurHandler}
+              id="guests"
+              value={guestsValue}
+              onChange={guestsChangeHandler}
+              onBlur={guestsBlurHandler}
             />
-            {ownersNameHasError && (
-              <p className="error-text">Please enter a valid name.</p>
+            {guestsHasError && (
+              <p className="error-text">Please enter a valid number.</p>
             )}
           </div>
-          <div className={ownersPhoneClasses}>
-            <label htmlFor="ownersPhone">Owner's phone</label>
+          <div className={roomClasses}>
+            <label htmlFor="room">Room type</label>
             <input
               type="text"
-              id="ownersPhone"
-              value={ownersPhoneValue}
-              onChange={ownersPhoneChangeHandler}
-              onBlur={ownersPhoneBlurHandler}
+              id="room"
+              value={roomValue}
+              onChange={roomChangeHandler}
+              onBlur={roomBlurHandler}
             />
-            {ownersPhoneHasError && (
-              <p className="error-text">Please enter a valid phone number.</p>
+            {roomHasError && (
+              <p className="error-text">Please enter a valid type.</p>
             )}
           </div>
-          <div className={ownersEmailClasses}>
-            <label htmlFor="ownersEmail">Owner's email</label>
+          <div className={objectivesClasses}>
+            <label htmlFor="objectives">Objectives</label>
             <input
               type="text"
-              id="ownersEmail"
-              value={ownersEmailValue}
-              onChange={ownersEmailChangeHandler}
-              onBlur={ownersEmailBlurHandler}
+              id="objectives"
+              value={objectivesValue}
+              onChange={objectivesChangeHandler}
+              onBlur={objectivesBlurHandler}
             />
-            {ownersEmailHasError && (
+            {objectivesHasError && (
               <p className="error-text">Please enter a valid email address.</p>
             )}
           </div>
         </div>
         <div className="form-actions">
-          <button className="form-btn" disabled={!formIsValid}>
-            Submit
-          </button>
+          <button disabled={!formIsValid}>Submit</button>
         </div>
       </div>
     </form>
