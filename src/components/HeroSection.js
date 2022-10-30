@@ -1,3 +1,4 @@
+// import classNamees from "./HeroSection.module.css";
 import classes from "./HeroSection.module.css";
 import customer1 from "../images/customers/customer-1.jpg";
 import customer2 from "../images/customers/customer-2.jpg";
@@ -5,6 +6,7 @@ import customer3 from "../images/customers/customer-3.jpg";
 import customer4 from "../images/customers/customer-4.jpg";
 import customer5 from "../images/customers/customer-5.jpg";
 import customer6 from "../images/customers/customer-6.jpg";
+import photo1 from "./img/cloud.png";
 import cyberDog from "../images/final.png";
 import { Link } from "react-router-dom";
 import thumbtack from "../images/thumbtack.png";
@@ -12,42 +14,67 @@ import missing from "../images/missing.png";
 
 const HeroSection = () => {
   return (
-    <section className={classes["section-hero"]}>
-      <div className={classes.hero}>
-        <div className={classes["hero-text-box"]}>
-          <h1 className={classes["heading-primary"]}>
-            The perfect place for owners to find their lost pet
-          </h1>
-          <p className={classes["hero-description"]}>
-            This incentivised 24/7 online service provides you essential
-            assistance for finding your buddy. Peers are one click away from
-            beginning the search
-          </p>
-          <Link to="/auth" className={classes["btn--full"]}>
-            Get Started...
-          </Link>
-
-          <div className={classes["delivered-meals"]}>
-            <div className={classes["delivered-imgs"]}>
-              <img src={customer1} alt="Customer photo" />
-              <img src={customer2} alt="Customer photo" />
-              <img src={customer3} alt="Customer photo" />
-              <img src={customer4} alt="Customer photo" />
-              <img src={customer5} alt="Customer photo" />
-              <img src={customer6} alt="Customer photo" />
+    <div>
+      <section className={classes.hero}>
+        <h2 className={classes["first_title"]}>Travel Beyond Limits</h2>
+        <h3 className={classes["first_title"]}>
+          Start your travel at an affordable price with Travelly <br />
+          Contact us down below
+        </h3>
+        <button className={classes["first_title"]}>Log In</button>
+      </section>
+      <section className={classes.locations}>
+        <header className={classes["locations-head"]}>
+          <h2>The Perfect Travelling Experience</h2>
+          <h3>
+            We cover everything from picking the perfect hotel <br />
+            flight and travelling destionation.
+          </h3>
+          <img
+            src={photo1}
+            alt="ceva"
+            className={(classes["moving-clouds-1"], classes["cloud"])}
+          />
+          <img
+            src={photo1}
+            alt="ceva"
+            className={(classes["moving-clouds-2"], classes["cloud"])}
+          />
+        </header>
+      </section>
+      <section className={classes.benefits}>
+        <header className={classes["benefits-head"]}>
+          <h2>The Perfect Travel</h2>
+          <h3>
+            We cover everything from picking the perfect hotel <br />
+            ,flight and destination.
+          </h3>
+        </header>
+        <div className={classes["cards"]}>
+          <div className={classes["card"]}>
+            <div className={classes["card-icon"]}>
+              <img src="./icons/route-solid.svg" alt="" />
             </div>
-            <p className={classes["delivered-text"]}>
-              <span className={classes["number-text"]}>2.350+</span>
-              customers found their pet
-            </p>
+            <h3>Travel</h3>
+            <p>Travel in over 250 countries with no effort.</p>
+          </div>
+          <div className={classes["card"]}>
+            <div className={classes["card-icon"]}>
+              <img src="./icons/bed-solid.svg" alt="" />
+            </div>
+            <h3>Hotel</h3>
+            <p>Hotels located near popular areas.</p>
+          </div>
+          <div className={classes["card"]}>
+            <div className={classes["card-icon"]}>
+              <img src="./icons/plane-departure-solid.svg" alt="" />
+            </div>
+            <h3>Fly</h3>
+            <p>Flight included in every purchased trip.</p>
           </div>
         </div>
-        <div className={classes["hero-img-box"]}>
-          <img className={classes["hero-img"]} src={cyberDog} />
-          {/* <img className={classes["missing"]} src={missing} /> */}
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 
@@ -64,25 +91,25 @@ export default HeroSection;
 
 // const HeroSection = () => {
 //   return (
-//     <section className="section-hero">
-//       <div className="hero">
-//         <div className="hero-text-box">
-//           <h1 className="heading-primary">
+//     <section classNameName="section-hero">
+//       <div classNameName="hero">
+//         <div classNameName="hero-text-box">
+//           <h1 classNameName="heading-primary">
 //             The perfect place for owners to find their lost pet
 //           </h1>
-//           <p className="hero-description">
+//           <p classNameName="hero-description">
 //             This incentivised 24/7 online service provides you essential
 //             assistance for finding your buddy. Peers are one click away from
 //             beginning the search
 //           </p>
-//           {/* <a href="#" className="btn btn--full margin-right-sm">
+//           {/* <a href="#" classNameName="btn btn--full margin-right-sm">
 //             Start eating well
 //           </a>
-//           <a href="#" className="btn btn--outline">
+//           <a href="#" classNameName="btn btn--outline">
 //             Learn more &darr;
 //           </a> */}
-//           <div className="delivered-meals">
-//             <div className="delivered-imgs">
+//           <div classNameName="delivered-meals">
+//             <div classNameName="delivered-imgs">
 //               <img src={customer1} alt="Customer photo" />
 //               <img src={customer2} alt="Customer photo" />
 //               <img src={customer3} alt="Customer photo" />
@@ -90,14 +117,14 @@ export default HeroSection;
 //               <img src={customer5} alt="Customer photo" />
 //               <img src={customer6} alt="Customer photo" />
 //             </div>
-//             <p className="delivered-text">
-//               <span className="number-text">2.350+</span>
+//             <p classNameName="delivered-text">
+//               <span classNameName="number-text">2.350+</span>
 //               customers found their pet
 //             </p>
 //           </div>
 //         </div>
-//         <div className="hero-img-box">
-//           <img className="hero-img" src={cyberDog} />
+//         <div classNameName="hero-img-box">
+//           <img classNameName="hero-img" src={cyberDog} />
 //         </div>
 //       </div>
 //     </section>

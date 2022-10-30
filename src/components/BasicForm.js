@@ -190,7 +190,7 @@ const BasicForm = (props) => {
       <div className="inputs-and-button">
         <div className="control-group">
           <div className={nameClasses}>
-            <label htmlFor="name">Pet's Name</label>
+            <label htmlFor="name">Proponent's Name</label>
             <input
               type="text"
               id="name"
@@ -203,7 +203,7 @@ const BasicForm = (props) => {
             )}
           </div>
           <div className={speciesClasses}>
-            <label htmlFor="species1">Species</label>
+            <label htmlFor="species1">City</label>
             <input
               type="text"
               id="species1"
@@ -212,12 +212,25 @@ const BasicForm = (props) => {
               onBlur={speciesBlurHandler}
             />
             {speciesHasError && (
-              <p className="error-text">Please enter a valid species.</p>
+              <p className="error-text">Please enter a valid city.</p>
             )}
           </div>
 
           <div className={dateClasses}>
-            <label htmlFor="date">Missing date</label>
+            <label htmlFor="date">Check-in date</label>
+            <input
+              type="text"
+              id="date"
+              value={dateValue}
+              onChange={dateChangeHandler}
+              onBlur={dateBlurHandler}
+            />
+            {dateHasError && (
+              <p className="error-text">Please enter a valid date</p>
+            )}
+          </div>
+          <div className={dateClasses}>
+            <label htmlFor="date">Check-out date</label>
             <input
               type="text"
               id="date"
@@ -243,7 +256,7 @@ const BasicForm = (props) => {
             )}
           </div>
           <div className={latClasses}>
-            <label htmlFor="latitude">Latitude</label>
+            <label htmlFor="latitude">Hotel Latitude</label>
             <input
               type="text"
               id="latitude"
@@ -252,11 +265,11 @@ const BasicForm = (props) => {
               onBlur={latBlurHandler}
             />
             {latHasError && (
-              <p className="error-text">Please enter a valid date latitude.</p>
+              <p className="error-text">Please enter a valid latitude.</p>
             )}
           </div>
           <div className={longClasses}>
-            <label htmlFor="longitude">Longitude</label>
+            <label htmlFor="longitude">Hotel Longitude</label>
             <input
               type="text"
               id="longitude"
@@ -265,11 +278,11 @@ const BasicForm = (props) => {
               onBlur={longBlurHandler}
             />
             {longHasError && (
-              <p className="error-text">Please enter a valid date longitude.</p>
+              <p className="error-text">Please enter a valid longitude.</p>
             )}
           </div>
           <div className={ageClasses}>
-            <label htmlFor="age">Age</label>
+            <label htmlFor="age">Estimated Cost</label>
             <input
               type="number"
               id="age"
@@ -278,7 +291,7 @@ const BasicForm = (props) => {
               onBlur={ageBlurHandler}
             />
             {ageHasError && (
-              <p className="error-text">Please enter a valid age.</p>
+              <p className="error-text">Please enter a valid cost.</p>
             )}
           </div>
           <div className={ownersNameClasses}>
@@ -322,7 +335,9 @@ const BasicForm = (props) => {
           </div>
         </div>
         <div className="form-actions">
-          <button className="form-btn" disabled={!formIsValid}>Submit</button>
+          <button className="form-btn" disabled={!formIsValid}>
+            Submit
+          </button>
         </div>
       </div>
     </form>

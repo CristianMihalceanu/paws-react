@@ -1,5 +1,6 @@
 .navbar {
-  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+  /* background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%); */
+  background-color: rgb(19, 28, 39, 1);
   /* opacity: 90%; */
 
   /* background-color: #ccc; */
@@ -18,7 +19,7 @@
   justify-content: space-between;
   align-items: center;
   height: 8rem;
-  width: 1400px;
+  width: 100%;
 }
 
 .righthandside {
@@ -29,8 +30,9 @@
 }
 
 .navbar-logo {
-  width: 9rem;
-  height: 6rem;
+  width: 20rem;
+  /* height: 9rem; */
+  margin-left: 4.8rem;
 }
 
 .fa-typo3 {
